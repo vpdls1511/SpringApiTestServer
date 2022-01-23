@@ -1,4 +1,4 @@
-package com.ngyu.springapitestserver.user;
+package com.ngyu.springapitestserver.module.user.domain;
 
 import lombok.Getter;
 import lombok.Setter;

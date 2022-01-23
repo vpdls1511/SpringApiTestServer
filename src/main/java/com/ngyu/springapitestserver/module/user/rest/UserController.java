@@ -1,5 +1,6 @@
-package com.ngyu.springapitestserver.user;
+package com.ngyu.springapitestserver.module.user.rest;
 
+import com.ngyu.springapitestserver.module.user.domain.RegisterRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
