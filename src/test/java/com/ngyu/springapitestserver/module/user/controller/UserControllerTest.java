@@ -1,4 +1,4 @@
-package com.ngyu.springapitestserver.module.user.rest;
+package com.ngyu.springapitestserver.module.user.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
