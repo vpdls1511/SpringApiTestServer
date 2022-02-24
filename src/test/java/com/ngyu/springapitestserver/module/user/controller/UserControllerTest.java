@@ -21,15 +21,14 @@ public class UserControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-
-
     @Autowired
     private ObjectMapper objectMapper;
 
+    static Map<String,Object> input = new HashMap<>();
+
     @Test
-    @DisplayName("회원가입 1")
+    @DisplayName("회원가입 1 - pass")
     void signupTest() throws Exception {
-        Map<String,Object> input = new HashMap<>();
 
         input.put("userName","김남규");
         input.put("userEmail","vpdls1511@gmail.com");
@@ -41,6 +40,22 @@ public class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(input)))
                 .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+    @Test
+    @DisplayName("회원가입 2 - err")
+    void signupTest2() throws Exception{
+        input.put("userName","김남규");
+        input.put("userEmail","vpdls1511@gmail.com");
+        input.put("userPassword","Test1234!!");
+        input.put("userAge","23213213123djfaipas");
+        input.put("userGender","Male");
+
+        mockMvc.perform(post("/api/user")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(input)))
+                .andExpect(status().isBadRequest())
                 .andDo(print());
     }
 }
